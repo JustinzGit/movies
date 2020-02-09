@@ -3,6 +3,7 @@
 class MovieController
   
   def call
+    Scrape.scrape_theaters
     puts "Welcome to Movie Finder!"
     puts "The CLI that searches for movies playing in your area."
     puts "Enter your zip code to list theaters: "
