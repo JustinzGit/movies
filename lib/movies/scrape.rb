@@ -7,7 +7,12 @@ class Scrape
     
     doc.css(".theater").each do |theater|
       title = theater.css("a.theater-name").text
-      hash[title.to_sym] = {}
+      hash[title.to_sym] = {
+        :location => 
+        :distance => 
+        :phone_number =>
+        :movies
+      }
     end
     binding.pry
   end 

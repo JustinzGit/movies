@@ -1,11 +1,13 @@
 class Theater 
-  attr_accessor :name, :location, :movies
+  attr_accessor :name, :location, :distance, :phone_number, :movies
   
   @@all = []
   
-  def initialize(name, location)
+  def initialize(name, location, distance, phone_number)
     @name = name
     @location = location
+    @distance = distance
+    @phone_number = phone_number
     @@all << self
   end 
   
