@@ -2,6 +2,7 @@
 
 require_relative "./movies/version"
 require_relative "./movies/movie_controller"
+require_relative "./movies/theater"
 
 
 # Defining namespace, but not needed, version file takes care of this

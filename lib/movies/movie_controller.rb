@@ -11,6 +11,7 @@ class MovieController
   end
   
   def theater_list
+    # want each with index -- theater.name, theater.location 
     puts "1. REGAL EDWARDS GREENWAY GRAND PALACE SCREENX & RPX -- 3839 Weslayan, Houston, TX 77027"
     puts "2. AMC HOUSTON 8 -- 510 Texas Street, Houston, TX 77002"
   end 
@@ -20,6 +21,7 @@ class MovieController
     puts "To re-enter a zip code type 'menu'"
     puts "To exit Movie Finder type 'exit'"
     
+    # want an array to select from
     input = gets.strip
     case input
     when "1"
