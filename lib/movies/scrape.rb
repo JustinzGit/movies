@@ -1,20 +1,25 @@
 class Scrape
+  attr_accessor :doc
   
-  def self.scrape_theaters
-    doc = Nokogiri::HTML(open("https://www.moviefone.com/showtimes/houston-tx/77054/theaters/"))
-    
-    hash = {}
-    
-    doc.css(".theater").each do |theater|
-      title = theater.css("a.theater-name").text
-      hash[title.to_sym] = {
-        :location => 
-        :distance => 
-        :phone_number =>
-        :movies
-      }
+  def initialize
+    @doc = Nokogiri::HTML(open("https://www.moviefone.com/showtimes/houston-tx/77054/theaters/"))
+  end 
+  
+  def scrape_theaters
+    @doc.css(".theater").each do |theater_entry|
+      theater = Theater.new
+      theater.name = theater_entry.css("a.theater-name").text
+      theater.location = theater_entry.css("p.address a").text
+      theater.phone_number = theater_entry.css("p.address .theater-phone").text
     end
-    binding.pry
+  end 
+    
+  def scrape_movies
+    @doc.css(".theater .movie-listing").each do |movie_entry|
+      movie = Movie.new
+      movie.name = movie_entry.css(".movietitle").text
+      movie.show_times = movie_entry.css(".showtimes-list .showtime-display").text
+    end 
   end 
   
 end 
