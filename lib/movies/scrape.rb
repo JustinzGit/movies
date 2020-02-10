@@ -12,8 +12,8 @@ class Scrape
       theater.location = theater_entry.css("p.address a").text
       theater.phone_number = theater_entry.css("p.address .theater-phone").text
       theater.url = theater_entry.css("a.theater-name")[0]["href"]
-      binding.pry
     end
+    binding.pry
   end 
   
   
@@ -28,5 +28,7 @@ class Scrape
       theater.movies << movie
     end
   end 
+  
+
   
 end 
