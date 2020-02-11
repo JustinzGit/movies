@@ -1,5 +1,5 @@
 class Theater 
-  attr_accessor :name, :location, :distance, :phone_number, :movies, :url
+  attr_accessor :name, :location, :distance, :phone_number, :url
   
   @@all = []
   
@@ -10,5 +10,9 @@ class Theater
   def self.all
     @@all
   end
+  
+  def self.clear
+    @@all.clear
+  end 
 
 end 

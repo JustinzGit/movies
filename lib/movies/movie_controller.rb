@@ -41,10 +41,15 @@ class MovieController
         puts ""
       end
       list_movies
+      
     elsif input == 'menu'
+      Theater.clear
+      Movie.clear
       list_theaters
+      
     elsif input == 'exit'
       exit_program
+      
     else
       puts "Invalid Input!"
       list_movies
