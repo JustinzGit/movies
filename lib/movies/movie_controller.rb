@@ -13,11 +13,11 @@ class MovieController
     puts "The CLI that searches for movies playing in your area."
     print "Enter your zip code to list theaters: "
     zip_code = gets.strip
-    Scrape.new(zip_code)
+    Scrape.scrape_theaters(zip_code)
     puts ""
     puts ""
     Theater.all.each.with_index(1) do |theater, i|
-      puts "#{i}. #{theater.name}"
+      puts "#{i}. #{theater.name} -- #{theater.distance}"
       puts "    Location: #{theater.location}"
       puts "    Phone: #{theater.phone_number}"
       puts ""
