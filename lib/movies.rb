@@ -3,6 +3,7 @@ require "nokogiri"
 require "open-uri"
 require "pry"
 
+require_relative "./movies/movie"
 require_relative "./movies/scrape"
 require_relative "./movies/version"
 require_relative "./movies/movie_controller"
