@@ -39,7 +39,7 @@ class MovieController
   end 
   
   def list_movies
-    puts "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ "
+    puts "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~"
     puts "Enter the theater number to list movies currently playing."
     puts "To re-enter a zip code type 'menu'"
     puts "To exit Movie Finder type 'exit'"
@@ -55,7 +55,7 @@ class MovieController
         puts "    Show times: #{movie.show_times}"
         puts ""
       end
-      list_movies
+      list_movie_info
       
     elsif input == 'menu'
       Theater.clear
@@ -73,6 +73,20 @@ class MovieController
       list_movies
     end 
   end
+  
+  def list_movie_info
+    puts "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~"
+    puts "Enter the movie number for more information."
+    puts "To re-enter a zip code type 'menu'"
+    puts "To exit Movie Finder type 'exit'"
+    print "Selection: "
+    input = gets.strip.downcase
+    
+    if input.to_i > 0
+       movie = Movie.all[input.to_i - 1]
+       Scrape.scrape_movie_info(movie.url, movie)
+    end 
+  end 
   
   def exit_program
     puts ""

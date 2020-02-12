@@ -22,6 +22,18 @@ class Scrape
       movie = Movie.new
       movie.name = movie_entry.css(".movietitle").text
       movie.show_times = movie_entry.css(".showtime-display").text.gsub("m", "m ")
+      movie.url = movie_entry.css(".movietitle a")[0]["href"]
     end 
   end
+  
+  def self.scrape_movie_info(movie_url, movie)
+    movie_page = Nokogiri::HTML(open(movie_url))
+    movie_page.css(".information").each do |movie_info|
+      movie.release_date = movie_info.css("p")[0].text
+      movie.summary = movie_info.css("p")[2].text
+      movie.cast = movie_info.css("p")[3].text
+      movie.producers = movie_info.css("p")[6].text
+      movie.distributors = movie_info.css("p")[7].text
+    end
+  end 
 end 
