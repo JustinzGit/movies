@@ -1,7 +1,7 @@
 class Movie
   attr_accessor :name, :show_times
   
-   @@all = []
+  @@all = []
   
   def initialize
     @@all << self
