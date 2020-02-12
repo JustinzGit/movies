@@ -75,7 +75,7 @@ class MovieController
   end
   
   def list_movie_info
-    puts "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~"
+    puts "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~"
     puts "Enter the movie number for more information."
     puts "To re-enter a zip code type 'menu'"
     puts "To exit Movie Finder type 'exit'"
@@ -85,6 +85,36 @@ class MovieController
     if input.to_i > 0
        movie = Movie.all[input.to_i - 1]
        Scrape.scrape_movie_info(movie.url, movie)
+       puts ""
+       puts "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~"
+       puts "Movie Info: #{movie.name}"
+       puts ""
+       puts "#{movie.release_date}"
+       puts ""
+       puts "#{movie.cast}"
+       puts ""
+       puts "Summary: #{movie.summary}"
+       puts ""
+       puts "#{movie.producers}"
+       puts ""
+       puts "#{movie.distributors}"
+       puts ""
+       list_movie_info
+       
+    elsif input == 'menu'
+      Theater.clear
+      Movie.clear
+      call
+      
+    elsif input == 'exit'
+      exit_program
+  
+    else
+      puts "                ! ~ ! ~ ! ~ ! ~"
+      puts "                 Invalid Input!"
+      puts "                ! ~ ! ~ ! ~ ! ~"
+      puts ""
+      list_movie_info
     end 
   end 
   

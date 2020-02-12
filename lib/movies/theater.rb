@@ -13,6 +13,5 @@ class Theater
   
   def self.clear
     @@all.clear
-  end 
-
+  end
 end 
