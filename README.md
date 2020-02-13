@@ -1,7 +1,6 @@
 # Movies
 
-This Ruby gem was created to satisfy the first project requirements for the Flatiron Software Engineering Program.
-The gem provides a command line interface that allows users to search for nearby theaters and obtain information on movies that are currently playing. 
+This Ruby gem was created to satisfy the first project requirements for the Flatiron Software Engineering Program.The gem provides a command line interface that allows users to search for nearby theaters and obtain information on movies that are currently playing. Data is obtain through web scraping moviefone.com. 
 
 ## Installation
 
