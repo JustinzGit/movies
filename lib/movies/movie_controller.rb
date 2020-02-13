@@ -40,7 +40,7 @@ class MovieController
     input = gets.strip.downcase
     case input
     
-    when input.to_i > 0
+    when -> (input) {input.to_i > 0}
       Scrape.scrape_movies(Theater.all[input.to_i - 1].url)
       show_movies
       show_movie_info
@@ -75,7 +75,7 @@ class MovieController
     input = gets.strip.downcase
     case input
     
-    when input.to_i > 0
+    when -> (input) {input.to_i > 0}
       movie = Movie.all[input.to_i - 1]
       Scrape.scrape_movie_info(movie.url, movie)
       puts ""
@@ -127,7 +127,7 @@ class MovieController
    puts ""
    Theater.all.each.with_index(1) do |theater, i|
       puts "#{i}. #{theater.name} -- #{theater.distance}"
-      puts "    Location: #{theater.location}"
+      puts "    Address: #{theater.location}"
       puts "    Phone: #{theater.phone_number}"
       puts ""
     end
@@ -149,7 +149,7 @@ class MovieController
   # Allows user to stop the CLI program
   def exit_program
     puts ""
-    puts "{ Thanks for using Movie Finder! Good-Bye! }"
+    puts "          { Thanks for using Movie Finder! Good-Bye! }"
     puts ""
     exit(true)
   end 

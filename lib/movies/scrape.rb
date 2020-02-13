@@ -1,10 +1,12 @@
 class Scrape
+  
+  # Scrapes Moviefone.com page that displays theaters based on location 
   def self.scrape_theaters(zip_code)
     doc = Nokogiri::HTML(open("https://www.moviefone.com/showtimes/#{zip_code}/#{zip_code}/theaters/"))
     
+    # Scrapes the first few pages
     doc.css(".page-number").size.times do |page_number|
       page =  Nokogiri::HTML(open("https://www.moviefone.com/showtimes/#{zip_code}/#{zip_code}/theaters/?page=#{page_number}"))
-    
       page.css(".theater").each do |theater_entry|
         theater = Theater.new
         theater.name = theater_entry.css("a.theater-name").text
@@ -16,6 +18,7 @@ class Scrape
     end 
   end 
   
+  # Scrapes collection of movies playing at a chosen theater
   def self.scrape_movies(theater_url)
     theater_page = Nokogiri::HTML(open(theater_url))
     theater_page.css(".movie-listing").each do |movie_entry|
@@ -26,6 +29,7 @@ class Scrape
     end 
   end
   
+  # Scrapes additional information about a chosen movie
   def self.scrape_movie_info(movie_url, movie)
     movie_page = Nokogiri::HTML(open(movie_url))
     movie_page.css(".information").each do |movie_info|
