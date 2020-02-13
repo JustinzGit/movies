@@ -1,8 +1,7 @@
 # Movies
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/movies`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This Ruby gem was created to satisfy the first project requirements for the Flatiron Software Engineering Program.
+The gem provides a command line interface that allows users to search for nearby theaters and obtain information on movies that are currently playing. 
 
 ## Installation
 
@@ -22,7 +21,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+* run `bin/movies` to start the CLI
+* follow prompts from terminal to access theater and movie information
 
 ## Development
 
