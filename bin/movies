@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-# Executable file, where we execute the CLI, require environment here
 
 require './lib/movies'
 
