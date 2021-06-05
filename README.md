@@ -1,12 +1,12 @@
-# Movies
-Movies is a Ruby Gem that provides a command line interface to search for nearby theaters and obtain information on movies that are currently playing. Data is obtain via scraping the website moviefone.com.
+# Movie Finder
+Movie Finder is a command line program devloped to search for nearby theaters and obtain information on movies that are currently playing. Data is obtain via scraping the website moviefone.com.
 
 ## Installation and Usage
-* Fork and clone this repository
+* Clone this repository
 * Be sure to have RubyGems installed (Ruby version 1.9+ comes with RubyGems by default)
 * Install the ruby gem `bundler` by running `gem install bundler` from the terminal
 * Install gem dependencies by running `bundle install` while inside the gems main directory
-* Run the following  `ruby bin/movies-cli-project` from the terminal and follow command line prompts to access theater/movie information
+* Run the following  `ruby bin/movies` from the terminal and follow command line prompts to access theater/movie information
 
 ## Contributing
 
